@@ -273,18 +273,10 @@
         // Simulated API transcription methods
         async function transcribeWithDeepgram(audioBlob) {
 
-            const apiKey = '4377639fd35b4489a6949c8dd3c386c593358c5c';
-            if (!apiKey) {
-                return {
-                    service: 'Deepgram',
-                    text: 'Error: Please enter a Deepgram API key',
-                    confidence: 0
-                };
-            }
-
             try {
                 // Create Deepgram client
                 const _deepgram = createClient('4377639fd35b4489a6949c8dd3c386c593358c5c');
+                alert(_deepgram);
 
                 //const deepgram = new Deepgram.Deepgram(apiKey);
 
