@@ -78,9 +78,6 @@
         }
     </style>
     <script src="https://unpkg.com/@deepgram/sdk"></script>
-    <script>
-        const { createClient } = require("@deepgram/sdk");
-    </script>
 </head>
 <body>
     <h1>Voice Transcription App</h1>
@@ -275,6 +272,7 @@
 
             try {
                 // Create Deepgram client
+                const { createClient } = require("@deepgram/sdk");
                 const _deepgram = createClient('4377639fd35b4489a6949c8dd3c386c593358c5c');
                 alert(_deepgram);
 
