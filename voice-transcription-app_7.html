@@ -336,7 +336,7 @@
                 return {
                     service: 'Whisper gpt-4o-transcribe',
                     text: transcript || 'No transcript available',
-                    confidence: Math.random() * 100
+                    confidence: 0
                 };
             } catch (error) {
                 console.error("Transcription Error:", error);
