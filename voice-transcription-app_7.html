@@ -112,6 +112,16 @@
         const loadingIndicator = document.getElementById('loading-indicator');
         const audioPlayer = document.getElementById('audio-player');
 
+        function getExtensionFromMimeType(mimeType) {
+            const mapping = {
+                'audio/wav': 'wav',
+                'audio/webm': 'webm',
+                'audio/ogg': 'ogg',
+                'audio/mp4': 'mp4'
+            };
+            return mapping[mimeType] || 'webm'; // default fallback
+        }
+
         // Determine best MIME type for recording
         function getSupportedMimeType() {
             const mimeTypes = [
@@ -311,9 +321,10 @@
 
         async function transcribeWithWhisper(audioBlob) {
             try {
+                const fileExtension = getExtensionFromMimeType(audioBlob.type);
                 // Create a FormData object to send the audio file
                 const formData = new FormData();
-                const audioFile = new File([audioBlob], 'recording.webm', {
+                const audioFile = new File([audioBlob], `recording.${fileExtension}`, {
                     type: audioBlob.type
                 });
 
